@@ -11,10 +11,10 @@ def handler(event, context):
     response["customer_name"] = item["Item"]["customer_name"]["S"]
     response["customer_email"] = item["Item"]["customer_email"]["S"]
     response["order"] = []
-    for it in item["Item"]["ord"]["M"]:
+    for it in item["Item"]["order_cost"]["M"]:
         if it == "costs":
-            response["order"].append([it, item["Item"]["ord"]["M"][it]["N"]])
+            response["order"].append([it, item["Item"]["order_cost"]["M"][it]["N"]])
         else:
-            response["order"].append([it, item["Item"]["ord"]["M"][it]["S"]])
+            response["order"].append([it, item["Item"]["order_cost"]["M"][it]["S"]])
     return response
 
