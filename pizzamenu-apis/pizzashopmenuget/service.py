@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
+
 
 import boto3
 
 
 def handler(event, context):
-    # Your code goes here!
     client = boto3.client("dynamodb")
     response = client.get_item(TableName="pizzashopmenu", Key=event)
     store_hours = dict()
