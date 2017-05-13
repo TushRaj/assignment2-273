@@ -5,7 +5,6 @@ def makeformat(list, varname):
     return [dict({varname:item}) for item in list]
 
 def handler(event, context):
-    # Your code goes here!
     client = boto3.client("dynamodb")
     try:
         client.put_item(TableName="pizzashoporder",
